@@ -13,10 +13,13 @@
 					"include": "#letter"
 				},
 				{
-					"include": "#comment_line"
+					"include": "#strings"
 				},
 				{
-					"include": "#comment_block"
+					"include": "#comment"
+				},
+				{
+					"include": "#comment_line"
 				}
 			]
 		},
@@ -24,14 +27,26 @@
 			"name": "keyword.control.type",
 			"match": "if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export|break|continue|int|uint|short|ushort|char|byte|str|addr"
 		},
-		"comment_line": {
-			"name": "comment.line.double-slash",
-			"match": "\\s?(//.*)$"
+		"strings": {
+			"name": "string.quoted.double.hare",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.hare",
+					"match": "\\\\."
+				}
+			]
 		},
-		"comment_block": {
-			"name": "comment.block",
-			"begin": "/*",
-			"end": "*/"
+		"comment":{
+			"name":"comment.block.ran",
+			"begin": "\\/\\*",
+			"end": "\\*\\/"
+		},
+		"comment_line":{
+			"name":"comment.line.ran",
+			"begin": "\\/\\/",
+			"end": "\\n"
 		}
 	},
 	"scopeName": "source.ran"
