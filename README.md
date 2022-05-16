@@ -1,3 +1,3 @@
 # ran-vscode-extension
 
-We supported the keyword highlighting.
+We supported the keyword and comments highlighting.
