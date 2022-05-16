@@ -3,31 +3,35 @@
 	"name": "RAN",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
+			"include": "#expression"
 		}
 	],
 	"repository": {
-		"keywords": {
+		"expression": {
 			"patterns": [
 				{
-					"name": "keyword.control.ran",
-					"match": "\\b(if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export)\\b"
+					"include": "#letter"
+				},
+				{
+					"include": "#comment_line"
+				},
+				{
+					"include": "#comment_block"
 				}
 			]
 		},
-		"strings": {
-			"name": "string.quoted.double.ran",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.ran",
-					"match": "\\\\."
-				}
-			]
+		"letter": {
+			"name": "keyword.control.type",
+			"match": "if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export|break|continue|int|uint|short|ushort|char|byte|str|addr"
+		},
+		"comment_line": {
+			"name": "comment.line.double-slash",
+			"match": "\\s?(//.*)$"
+		},
+		"comment_block": {
+			"name": "comment.block",
+			"begin": "/*",
+			"end": "*/"
 		}
 	},
 	"scopeName": "source.ran"
