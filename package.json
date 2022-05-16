@@ -1,0 +1,25 @@
+{
+    "name": "ran-vscode-extension",
+    "displayName": "RAN-vscode-extension",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ran",
+            "aliases": ["RAN", "ran"],
+            "extensions": [".ran", ".ran.pre"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ran",
+            "scopeName": "source.ran",
+            "path": "./syntaxes/ran.tmLanguage.json"
+        }]
+    }
+}
