@@ -10,43 +10,78 @@
 		"expression": {
 			"patterns": [
 				{
+					"include": "#comment"
+				},
+				{
+					"include": "#comment_line"
+				},
+				{
+					"include": "#number"
+				},
+				{
 					"include": "#letter"
 				},
 				{
 					"include": "#strings"
 				},
 				{
-					"include": "#comment"
+					"include": "#function"
 				},
 				{
-					"include": "#comment_line"
+					"include": "#untyped_var"
+				},
+				{
+					"include": "#typed_var"
+				},
+				{
+					"include": "#lrval_var"
 				}
 			]
 		},
 		"letter": {
-			"name": "keyword.control.type",
-			"match": "if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export|break|continue|int|uint|short|ushort|char|byte|str|addr"
+			"name": "keyword.control.type.ran",
+			"match": "true|false|if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export|break|continue|int|uint|short|ushort|char|byte|str|bool|addr"
 		},
 		"strings": {
-			"name": "string.quoted.double.hare",
+			"name": "string.quoted.double.ran",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.hare",
+					"name": "constant.character.escape.ran",
 					"match": "\\\\."
 				}
 			]
 		},
-		"comment":{
-			"name":"comment.block.ran",
+		"comment": {
+			"name": "comment.block.ran",
 			"begin": "\\/\\*",
 			"end": "\\*\\/"
 		},
-		"comment_line":{
-			"name":"comment.line.ran",
+		"comment_line": {
+			"name": "comment.line.ran",
 			"begin": "\\/\\/",
 			"end": "\\n"
+		},
+		"number": {
+			"name": "constant.numeric.ran",
+			"match": "0?x?b?\\d*\\.?\\d+e?[\\+\\-]?\\d*"
+		},
+		"function":{
+			"name":"entity.name.function",
+			"match": "(?!def +)\\w+ *(?=\\()"
+		},
+		"untyped_var":{
+			"name":"entity.name.tag",
+			"match": "\\w+(?= *=)"
+		},
+		"typed_var":{
+			"name":"entity.name.tag",
+			"match": "\\w+(?=#\\w+)"
+		},
+		"lrval_var":{
+			"name":"entity.name.tag",
+			"match": "(?=[\\D\\W])\\w+(?=[\\D\\W])"
 		}
 	},
 	"scopeName": "source.ran"
