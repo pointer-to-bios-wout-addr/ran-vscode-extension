@@ -37,7 +37,7 @@
 		},
 		"letter": {
 			"name": "keyword.control.type.ran",
-			"match": "(?<=[\\D\\W\\s]*)struct|endstruct|true|false|if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export|break|continue|int|uint|short|ushort|char|byte|str|bool|addr(?=[\\D\\W\\s]+)"
+			"match": "(?<=[\\D\\W\\s]*)struct|endstruct|true|false|if|endif|while|endwhile|for|endfor|return|def|enddef|modname|import|export|break|continue|int|uint|short|ushort|char|byte|float|str|bool|addr(?=[\\D\\W\\s]+)"
 		},
 		"strings": {
 			"name": "string.quoted.double.ran",
